@@ -13,3 +13,36 @@
 
 [flask-marshmallow-pypi](https://pypi.org/project/flask-marshmallow/)
 [flask-marshmallow-docs](https://flask-marshmallow.readthedocs.io/)
+
+
+- Install all dependencies
+```
+$ pipenv install Flask Flask-SQLAlchemy flask-marshmallow
+```
+- Create your sqlite database
+```
+$ pipenv shell
+$ python
+>>> from app import db
+>>> db.create_all()
+```
+- Flask Routes
+  - POST One Todo
+    - http://localhost:5000/todo
+    ```
+    {
+        "title": "Clean My Bedroom",
+        "done": false
+    }
+    ```
+  - GET All Todos
+    - http://localhost:5000/todos
+  - PATCH One Todo (only updates done)
+    - http://localhost:5000/todo/id
+    ```
+    {
+        "done": true
+    }
+    ```
+  - DELETE One Todo
+    - http://localhost:5000/todo/id
