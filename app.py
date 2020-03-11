@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
+from flask_cors import CORS
 import os
 
 app = Flask(__name__)
@@ -10,6 +11,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(basedir, "ap
 
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
+CORS(app)
 
 class Todo(db.Model):
     __tablename__ = 'todos'
